@@ -16,9 +16,9 @@ def about():
 def textured_glass():
     return render_template("textured_glass.html")
 
-@app.route('/randomthoughts')
-def randomthoughts():
-    return render_template("randomthoughts.html")
+@app.route('/projects')
+def projects():
+    return render_template("projects.html")
 
 if __name__ == '__main__':
     app.run()
