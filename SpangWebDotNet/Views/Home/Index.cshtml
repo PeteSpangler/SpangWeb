@@ -1,8 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Pete Spangler</h1>
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1>Pete Spangler</h1>
+            <h2 class="font-weight-light mb-0">Web Developer - Copywriter - Raconteur</h2>
+        </div>
+    </header>
 </div>
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <h2 class="text-uppercase text-center text-secondary">Tech stack</h2>
+    </div>
+</section>
+<div class="projects-horizontal">
+    <div class="container">
+        <div class="row projects">
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/FlaskGood.png"></div>
+                    <div class="col">
+                        <h3 class="name"><a href="https://github.com/PeteSpangler/UdacityFullStackWebDev">Fyyur and Trivia API</a></h3>
+                        <p class="description">Utilized the Flask Web Framework for several projects through a Udacity Full Stack Web Development Nanodegree, as well as this website!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/python.jpg"></div>
+                    <div class="col">
+                        <h3 class="name"><a href="textured_glass">Python</a></h3>
+                        <p class="description">My main programming language, so the majority of my projects have been written in Python. Click on link above for just one example of what I have made with Python.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/docker_Logo.png"></div>
+                    <div class="col">
+                        <h3 class="name">Docker</h3>
+                        <p class="description">This website is deployed as a Docker container from an Azure Container Registry.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 item">
+                <div class="row">
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/azure-1.png"></div>
+                    <div class="col">
+                        <h3 class="name"><a href="https://github.com/PeteSpangler/UdacityAzureDeveloper">Azure</a></h3>
+                        <p class="description">I recently completed the Udacity Azure Developer Nanodegree, in which I built several projects utilizing different features of Azure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="about" class="bg-primary text-white mb-0">
+    <div class="container">
+        <h2 class="text-uppercase text-center text-white"><a class="btn btn-outline-primary active btn-lg" role="button" asp-area="" asp-controller="Home" asp-action="AboutMe" style="background: rgb(44,62,80);width: 300px;height: 50px;padding: 0px;padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;text-align: center;font-size: 30px;"><strong>Learn More</strong></a></h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+            <div class="col-lg-4 ml-auto">
+                <p class="lead text-center">An experienced teacher looking to transition into a new industry.</p>
+            </div>
+            <div class="col-lg-4 mr-auto">
+                <p class="lead text-center">Award Winning Social Media Copywriter, avid runner, and ravenous reader with an insatiable hunger for knowledge.</p>
+            </div>
+        </div>
+        <div class="text-center mt-4"></div>
+    </div>
+</section>
+
+<div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/smart-forms.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="~/js/freelancer.js"></script>

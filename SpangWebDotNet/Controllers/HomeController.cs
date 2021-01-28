@@ -23,7 +23,15 @@ namespace SpangWebDotNet.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AboutMe()
+        {
+            return View();
+        }
+        public IActionResult Projects()
+        {
+            return View();
+        }
+        public IActionResult ContactMe()
         {
             return View();
         }
