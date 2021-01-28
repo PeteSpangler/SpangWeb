@@ -1,1 +1,0 @@
-This is my personal website. It holds my portfolio and other interesting things.
