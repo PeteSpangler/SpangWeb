@@ -1,0 +1,1 @@
+const purgecss = new Purgecss('./purgecss.config.js')

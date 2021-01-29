@@ -2,12 +2,13 @@
   "name": "spangweb-purgecss",
   "version": "1.0.0",
   "description": "remove unnecessary bootstrap",
-  "main": "webpack.config.js",
+  "main": "purgecss.config.js",
   "scripts": {
-    "purge": "purgecss --css ./wwwroot/lib/bootstrap/dist/css/bootstrap.min.css --content ./views/*.cshtml --out ./css/site.css"
+    "purge": "purgecss -c purgecss.config.js -o wwwroot/css/purgecss"
   },
   "devDependencies": {
     "extract-text-webpack-plugin": "^3.0.2",
+    "purgecss": "^4.0.0",
     "purgecss-webpack-plugin": "^4.0.0"
   }
 }
