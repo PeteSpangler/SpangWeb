@@ -1,25 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="text-center">
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container">
-            <h1>Pete Spangler</h1>
-            <h2 class="font-weight-light mb-0">Web Developer - Copywriter - Raconteur</h2>
-        </div>
-    </header>
-</div>
-<section id="portfolio" class="portfolio">
+<div class="text-center pt-2">
     <div class="container">
-        <h2 class="text-uppercase text-center text-secondary">Tech stack</h2>
+        <h1>Pete Spangler</h1>
+        <h2 class="font-weight-light mb-3">Software Engineer - Copywriter - Raconteur</h2>
     </div>
-</section>
+</div>
+
 <div class="projects-horizontal">
     <div class="container">
+        <h2 class="text-uppercase text-center text-secondary mb-0">Tech stack...... so far!</h2>
         <div class="row projects">
             <div class="col-sm-6 item">
                 <div class="row">
-                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/FlaskGood.png"></div>
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/flasklogo2.png"></div>
                     <div class="col">
                         <h3 class="name"><a href="https://github.com/PeteSpangler/UdacityFullStackWebDev">Fyyur and Trivia API</a></h3>
                         <p class="description">Utilized the Flask Web Framework for several projects through a Udacity Full Stack Web Development Nanodegree, as well as the first version of this website!</p>
@@ -28,7 +23,7 @@
             </div>
             <div class="col-sm-6 item">
                 <div class="row">
-                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/python.jpg"></div>
+                    <div class="col-md-12 col-lg-5"><img class="img-fluid" src="~/portfolio/pythonlogo.png"></div>
                     <div class="col">
                         <h3 class="name"><a asp-area="" asp-controller="Home" asp-action="TexturedGlass">Python</a></h3>
                         <p class="description">My main programming language, so the majority of my projects have been written in Python. Click on link above for just one example of what I have made with Python.</p>
@@ -58,11 +53,9 @@
 </div>
 <section id="about" class="bg-primary text-white mb-0">
     <div class="container">
-        <h2 class="text-uppercase text-center text-white"><a class="btn btn-outline-primary active btn-lg" role="button" asp-area="" asp-controller="Home" asp-action="AboutMe" style="background: rgb(44,62,80);width: 300px;height: 50px;padding: 0px;padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;text-align: center;font-size: 30px;"><strong>Learn More</strong></a></h2>
-        <hr class="star-light mb-5">
         <div class="row">
             <div class="col-lg-4 ml-auto">
-                <p class="lead text-center">An experienced teacher looking to transition into a new industry.</p>
+                <p class="lead text-center">An experienced teacher looking to transition into the tech industry and make a difference at scale.</p>
             </div>
             <div class="col-lg-4 mr-auto">
                 <p class="lead text-center">Award Winning Social Media Copywriter, avid runner, and ravenous reader with an insatiable hunger for knowledge.</p>
@@ -71,6 +64,48 @@
         <div class="text-center mt-4"></div>
     </div>
 </section>
+<div class="container"><img class="img-fluid d-block mx-auto mb-5" src="~/portfolio/IMG_20180721_112812635_HDR.jpg"></div>
+<div class="article-list">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-uppercase text-center text-secondary">Hobbies and interests</h2>
+        </div>
+        <div class="row articles">
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/IMG_20161119_183621686_HDR.jpg">
+                <h3 class="name">Hockey</h3>
+                <p class="description">As part of my Canadian Citizenship test prep, I have taken a stronger interest in the sport since I moved here in 2017.&nbsp; Additionally, my knowledge of it and other sports helped me gain a freelancing role writing social media content for a local hobby shop, a role in which I helped the agency win an award. (Hermes Creative Awards 2020)</p>
+            </div>
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/IMG_20180424_072043955_HDR.jpg">
+                <h3 class="name">Travel</h3>
+                <p class="description">While 2020 put a stop to this, I do love to visit new places and have new experiences. Above is a picture from a morning safari in Eswatini.</p>
+            </div>
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/IMG_20200904_102857.jpg">
+                <h3 class="name">Hiking</h3>
+                <p class="description">Canada has absolutely gorgeous nature and I take every opportunity to explore and immerse myself in it. This is the "Valley of the Gods" from Maligne Lake in Jasper National Park and the larger picture above this div is from Panorama Ridge in Garibaldi Provincial Park.</p>
+            </div>
+        </div>
+        <div class="row articles">
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/seawheezefinish.jpg">
+                <h3 class="name">Running</h3>
+                <p class="description">If you told me in 2015 that I would have run multiple half marathons in a few years, I would have NEVER believed you. But I have the medals and blister scars to prove it now. 3x Seawheeze participant!</p>
+            </div>
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/lcfcgame.jpg">
+                <h3 class="name">Football</h3>
+                <p class="description">Due to a year of carpooling with an obsessed Liverpool fanatic, I adopted the Reds as my team. I have yet to pilgrimage to Anfield, but I did see Leicester draw with West Ham in their preposterous title winning season.</p>
+            </div>
+            <div class="col-sm-6 col-md-4 item">
+                <img class="img-fluid" src="~/portfolio/romepasta.jpg">
+                <h3 class="name">Food!</h3>
+                <p class="description">I am always looking for a good place to eat or something new and interesting to try. I have a great list of restaurants in Vancouver, message me if you need recommendations!</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
