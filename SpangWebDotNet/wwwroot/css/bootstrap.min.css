@@ -56,7 +56,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #000000;
     text-align: left;
     background-color: #577399
 }
@@ -4542,7 +4542,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #BDD5EA;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem
@@ -10582,7 +10582,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 a {
-    color: #19092A
+    color: #000000
 }
 
     a:active, a:focus, a:hover {
@@ -10634,7 +10634,7 @@ a {
 }
 
     .article-list p {
-        color: #7d8285;
+        color: #000000;
     }
 
     .article-list h2 {
@@ -10707,7 +10707,7 @@ a {
 }
 
     .projects-horizontal p {
-        color: #7d8285;
+        color: #000000;
     }
 
     .projects-horizontal h2 {
