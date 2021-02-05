@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SpangWebDotNet.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace SpangWebDotNet
 {
@@ -24,6 +26,8 @@ namespace SpangWebDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<HabitTrackerContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("HabitTrackerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

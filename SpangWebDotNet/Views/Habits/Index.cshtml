@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SpangWebDotNet.Models.Habits>
+
+@{
+    ViewData["Title"] = "Habit Tracker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="pt-3">Habit Tracker</h1>
+
+    <nav class="nav nav-pills">
+        <a class="nav-link active" asp-action="Create">Add Habit to the List</a>
+    </nav>
+<table class="table pt-2">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Daily_Habit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Positive_Negative_Neutral)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Daily_Habit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Positive_Negative_Neutral)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
