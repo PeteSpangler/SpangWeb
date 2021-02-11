@@ -27,7 +27,7 @@ namespace SpangWebDotNet
         {
             services.AddControllersWithViews();
             services.AddDbContext<HabitTrackerContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("HabitTrackerContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
