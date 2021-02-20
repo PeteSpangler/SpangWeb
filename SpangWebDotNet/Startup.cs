@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SpangWebDotNet.Data;
-using Microsoft.EntityFrameworkCore;
+using DbUp;
 
 namespace SpangWebDotNet
 {
@@ -26,8 +26,20 @@ namespace SpangWebDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<HabitTrackerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+            var connectionString =
+                Configuration.GetConnectionString("DefaultConnection");
+            EnsureDatabase.For.SqlDatabase(connectionString);
+            var upgrader = DeployChanges.To
+                .SqlDatabase(connectionString, null)
+                .WithScriptsEmbeddedInAssembly(
+                System.Reflection.Assembly.GetExecutingAssembly()
+                )
+                .WithTransaction()
+                .Build();
+            if (upgrader.IsUpgradeRequired())
+            {
+                upgrader.PerformUpgrade();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
