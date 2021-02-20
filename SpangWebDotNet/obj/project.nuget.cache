@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mj6ZMtorOW571LS6nVnwMxorOlUZPyrCRIY299yk52b+dRHTJT6tXVKkN4u3UCSFWHg2yh+meJxOaec6XtDL1w==",
+  "dgSpecHash": "5oBRH3v5ArZwRd+yyqCwJYeBhQvXegAAdlFMOcE8zbMlDw57U2wa+EBKooiEtnfA40PhXdpCq/9sW2VYdTPaKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\peter\\.nuget\\packages\\dbup-sqlserver\\4.5.0\\dbup-sqlserver.4.5.0.nupkg.sha512",
     "C:\\Users\\peter\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\peter\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\peter\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.3\\microsoft.aspnetcore.authentication.jwtbearer.5.0.3.nupkg.sha512",
     "C:\\Users\\peter\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\peter\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.2\\microsoft.aspnetcore.mvc.razor.extensions.5.0.2.nupkg.sha512",
     "C:\\Users\\peter\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.2\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.2.nupkg.sha512",
