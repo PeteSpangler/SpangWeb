@@ -2,167 +2,152 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SpangWebDotNet.Data;
-using SpangWebDotNet.Data.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
-using Microsoft.Extensions.Configuration;
-using System.Net.Http;
-using System.Text.Json;
+using SpangWebDotNet.Models;
 
 namespace SpangWebDotNet.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HabitsController : ControllerBase
+    public class HabitsController : Controller
     {
-        private readonly IDataRepository _dataRepository;
-        private readonly IHabitCache _cache;
-        private readonly IHttpClientFactory _clientFactory;
-        private readonly string _auth0UserInfo;
+        private readonly HabitTrackerContext _context;
 
-        public HabitsController(IDataRepository dataRepository, IHabitCache habitCache, IHttpClientFactory clientFactory, IConfiguration configuration)
+        public HabitsController(HabitTrackerContext context)
         {
-            _dataRepository = dataRepository;
-            _cache = habitCache;
-            _clientFactory = clientFactory;
-            _auth0UserInfo = $"{configuration["Auth0:Authority"]}userinfo";
+            _context = context;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<HabitGetManyResponse>> GetHabits(string search, bool includeResponses, int page = 1, int pageSize = 20)
+        // GET: Habits
+        public async Task<IActionResult> Index()
         {
-            if (string.IsNullOrEmpty(search))
+            return View(await _context.Habit.ToListAsync());
+        }
+
+        // GET: Habits/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
             {
-                if (includeResponses)
-                {
-                    return await _dataRepository.GetHabitsWithResponses();
-                }
-                else
-                {
-                    return await _dataRepository.GetHabits();
-                }
+                return NotFound();
             }
-            else
-            {
-                return await _dataRepository.GetHabitsBySearchWithPaging(search, page, pageSize);
-            }
-        }
 
-        [HttpGet("noresponses")]
-        public async Task<IEnumerable<HabitGetManyResponse>> GetHabitsNoResponse()
-        {
-            return await _dataRepository.GetHabitsNoResponse();
-        }
-
-        [HttpGet("{habitId}")]
-        public async Task<ActionResult<HabitGetSingleResponse>> GetHabit(int habitId)
-        {
-            var habit = _cache.Get(habitId);
+            var habit = await _context.Habit
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (habit == null)
             {
-                habit = await _dataRepository.GetHabit(habitId);
-                if (habit == null)
-                {
-                    return NotFound();
-                }
-                _cache.Set(habit);
+                return NotFound();
             }
-            return habit;
+
+            return View(habit);
         }
 
-        [Authorize]
+        // GET: Habits/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Habits/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<ActionResult<HabitGetSingleResponse>> PostHabit(HabitPostRequest habitPostRequest)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Date,DailyHabit,Intention,Feedback")] Habit habit)
         {
-            var savedHabit = await _dataRepository.PostHabit(new HabitPostFullRequest
+            if (ModelState.IsValid)
             {
-                DailyHabit = habitPostRequest.DailyHabit,
-                Intention = habitPostRequest.Intention,
-                UserName = await GetUserName(),
-                UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value,
-                Created = DateTime.UtcNow
-            });
-            return CreatedAtAction(nameof(GetHabit), new
-            {
-                habitId = savedHabit.HabitId
-            }, savedHabit);
+                _context.Add(habit);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(habit);
         }
 
-        [Authorize(Policy = "MustBeHabitAuthor")]
-        [HttpPut("{habitId}")]
-        public async Task<ActionResult<HabitGetSingleResponse>> PutHabit(int habitId, HabitPutRequest habitPutRequest)
+        // GET: Habits/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            var habit = await _dataRepository.GetHabit(habitId);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var habit = await _context.Habit.FindAsync(id);
             if (habit == null)
             {
                 return NotFound();
             }
-            habitPutRequest.DailyHabit = string.IsNullOrEmpty(habitPutRequest.DailyHabit) ? habit.DailyHabit : habitPutRequest.DailyHabit;
-            habitPutRequest.Intention = string.IsNullOrEmpty(habitPutRequest.Intention) ? habit.Intention : habitPutRequest.Intention;
-            var savedHabit = await _dataRepository.PutHabit(habitId, habitPutRequest);
-            _cache.Remove(savedHabit.HabitId);
-            return savedHabit;
+            return View(habit);
         }
 
-        [Authorize(Policy = "MustBeHabitAuthor")]
-        [HttpDelete("{habitId}")]
-        public async Task<ActionResult> DeleteHabit(int habitId)
+        // POST: Habits/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,DailyHabit,Intention,Feedback")] Habit habit)
         {
-            var habit = await _dataRepository.GetHabit(habitId);
+            if (id != habit.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(habit);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!HabitExists(habit.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(habit);
+        }
+
+        // GET: Habits/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var habit = await _context.Habit
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (habit == null)
             {
                 return NotFound();
             }
-            await _dataRepository.DeleteHabit(habitId);
-            _cache.Remove(habitId);
-            return NoContent();
+
+            return View(habit);
         }
 
-        [Authorize(Policy = "MustBeHabitAuthor")]
-        [HttpPost("response")]
-        public async Task<ActionResult<ResponseGetResponse>> PostResponse(ResponsePostRequest responsePostRequest)
+        // POST: Habits/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var habitExists = await _dataRepository.HabitExists(responsePostRequest.HabitId.Value);
-            if (!habitExists)
-            {
-                return NotFound();
-            }
-            var savedResponse = await _dataRepository.PostResponse(new ResponsePostFullRequest
-            {
-                HabitId = responsePostRequest.HabitId.Value,
-                Feedback = responsePostRequest.Feedback,
-                UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value,
-                UserName = await GetUserName(),
-                Created = DateTime.UtcNow
-            });
-
-            _cache.Remove(responsePostRequest.HabitId.Value);
-
-            return savedResponse;
+            var habit = await _context.Habit.FindAsync(id);
+            _context.Habit.Remove(habit);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        private async Task<string> GetUserName()
+        private bool HabitExists(int id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, _auth0UserInfo);
-            request.Headers.Add("Authorization", Request.Headers["Authorization"].First());
-
-            var client = _clientFactory.CreateClient();
-
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                var jsonContent = await response.Content.ReadAsStringAsync();
-                var user = JsonSerializer.Deserialize<User>(jsonContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                return user.Name;
-            }
-            else
-            {
-                return "";
-            }
+            return _context.Habit.Any(e => e.Id == id);
         }
     }
 }

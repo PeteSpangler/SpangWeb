@@ -1,26 +1,29 @@
-﻿@model IEnumerable<SpangWebDotNet.Models.Habits>
+﻿@model IEnumerable<SpangWebDotNet.Models.Habit>
 
 @{
-    ViewData["Title"] = "Habit Tracker";
+    ViewData["Title"] = "Habits";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="pt-3">Habit Tracker</h1>
+<h1>Index</h1>
 
-    <nav class="nav nav-pills">
-        <a class="nav-link active" asp-action="Create">Add Habit to the List</a>
-    </nav>
-<table class="table pt-2">
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Daily_Habit)
+                @Html.DisplayNameFor(model => model.DailyHabit)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Positive_Negative_Neutral)
+                @Html.DisplayNameFor(model => model.Intention)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback)
             </th>
             <th></th>
         </tr>
@@ -32,10 +35,13 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Daily_Habit)
+                @Html.DisplayFor(modelItem => item.DailyHabit)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Positive_Negative_Neutral)
+                @Html.DisplayFor(modelItem => item.Intention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

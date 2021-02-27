@@ -23,10 +23,6 @@ namespace SpangWebDotNet.Controllers
             return View();
         }
 
-        public IActionResult HabitTracker()
-        {
-            return View();
-        }
         public IActionResult Projects()
         {
             return View();

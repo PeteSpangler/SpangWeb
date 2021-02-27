@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj": {}
+    "C:\\Users\\peter\\source\\repos\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj": {
+    "C:\\Users\\peter\\source\\repos\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj",
+        "projectUniqueName": "C:\\Users\\peter\\source\\repos\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj",
         "projectName": "SpangWebDotNet",
-        "projectPath": "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj",
+        "projectPath": "C:\\Users\\peter\\source\\repos\\GitHub\\SpangWeb\\SpangWebDotNet\\SpangWebDotNet.csproj",
         "packagesPath": "C:\\Users\\peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\peter\\OneDrive\\Desktop\\GitHub\\SpangWeb\\SpangWebDotNet\\obj\\",
+        "outputPath": "C:\\Users\\peter\\source\\repos\\GitHub\\SpangWeb\\SpangWebDotNet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,21 +44,39 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Dapper": {
+            "EntityFramework": {
               "target": "Package",
-              "version": "[2.0.78, )"
+              "version": "[6.4.4, )"
             },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.3, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -66,15 +84,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.2, )"
             },
             "bootstrap": {
               "target": "Package",
               "version": "[4.6.0, )"
-            },
-            "dbup": {
-              "target": "Package",
-              "version": "[4.5.0, )"
             }
           },
           "imports": [

@@ -1,13 +1,14 @@
-﻿@model SpangWebDotNet.Models.Habits
+﻿@model SpangWebDotNet.Models.Habit
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="pt-2">Habit Details</h1>
+<h1>Details</h1>
 
 <div>
+    <h4>Habit</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -17,16 +18,22 @@
             @Html.DisplayFor(model => model.Date)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Daily_Habit)
+            @Html.DisplayNameFor(model => model.DailyHabit)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Daily_Habit)
+            @Html.DisplayFor(model => model.DailyHabit)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Positive_Negative_Neutral)
+            @Html.DisplayNameFor(model => model.Intention)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Positive_Negative_Neutral)
+            @Html.DisplayFor(model => model.Intention)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Feedback)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Feedback)
         </dd>
     </dl>
 </div>
