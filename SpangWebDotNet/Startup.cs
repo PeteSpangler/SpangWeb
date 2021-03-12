@@ -28,11 +28,11 @@ namespace SpangWebDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<HabitTrackerContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("HabitTrackerContext")));
+            //services.AddDbContext<HabitTrackerContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("HabitTrackerContext")));
 
 
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddDatabaseDeveloperPageExceptionFilter();
 
          }
 

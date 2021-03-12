@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
@@ -28,14 +21,6 @@
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
     <Content Remove="C:\Users\dell\.nuget\packages\bootstrap\4.6.0\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20210227010444_Habit.cs" />
-    <Compile Include="Migrations\20210227010444_Habit.Designer.cs" />
-    <Compile Include="Migrations\20210227011317_InitialCreae.cs" />
-    <Compile Include="Migrations\20210227011317_InitialCreae.Designer.cs" />
-    <Compile Include="Migrations\HabitTrackerContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>
